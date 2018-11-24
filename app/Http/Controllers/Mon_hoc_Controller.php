@@ -14,7 +14,7 @@ class Mon_hoc_Controller extends Controller
      */
     public function index()
     {
-        return view('mon_hoc.list', ['items' => Mon_hoc::all()]);
+        return view('mon_hoc.list', ['items' => Mon_hoc::all(),'title'=>'Danh sach']);
     }
 
     /**
@@ -24,7 +24,7 @@ class Mon_hoc_Controller extends Controller
      */
     public function create()
     {
-        return view('mon_hoc.edit', ['item' => new Mon_hoc()]);
+        return view('mon_hoc.edit', ['item' => new Mon_hoc(),'title'=>"Tạo mon hoc mới"]);
 
     }
 
@@ -70,7 +70,7 @@ class Mon_hoc_Controller extends Controller
      */
     public function edit(Mon_hoc $mon_hoc)
     {
-        return view('mon_hoc.edit', ['item' => $mon_hoc]);
+        return view('mon_hoc.edit', ['item' => $mon_hoc,'title'=>"Sửa mon hoc"]);
 
     }
 
