@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.7.9 on 2018-11-08 17:26:15.
+ * Generated for Laravel 5.7.9 on 2018-11-24 16:51:50.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -13578,6 +13578,18 @@ namespace Illuminate\Support\Facades {
  
 }
 
+namespace Jenssegers\Date { 
+
+    /**
+     * 
+     *
+     */ 
+    class Date {
+         
+    }
+ 
+}
+
 namespace Collective\Html { 
 
     /**
@@ -17812,6 +17824,8 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Date extends \Jenssegers\Date\Date {}
 
     class Form extends \Collective\Html\FormFacade {}
 

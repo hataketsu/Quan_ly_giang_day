@@ -8,7 +8,7 @@
 
         <p>
             {{Auth::user()->name}} - Admin
-            <small>Member since Nov. 2012</small>
+            <small>Tham gia từ: {{(new Date(Auth::user()->created_at))->format('l j-m-Y')}}</small>
         </p>
     </li>
     <li class="user-footer">

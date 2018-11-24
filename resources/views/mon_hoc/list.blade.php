@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.basic')
 @section('content')
     <a href="/mon_hoc/create">Tao mon hoc moi</a>
     <div class="box">
