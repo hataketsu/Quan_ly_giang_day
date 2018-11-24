@@ -1,0 +1,1 @@
+<li><a href="{{$item['link']}}"><i class="fa {{$item['icon']}}"></i> <span>{{$item["title"]}}</span></a></li>

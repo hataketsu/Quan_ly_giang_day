@@ -27,4 +27,5 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    protected $attributes = ['role' => 'teacher', 'avatar' => 'no_avatar.png'];
 }

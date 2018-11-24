@@ -1,0 +1,28 @@
+@startuml
+|Admin|
+start
+:Chọn quảng cáo cần sửa;
+|Hệ thống|
+if (Kiểm tra quảng cáo) then (tốn tại)
+|Hệ thống|
+:Hiển thị thông tin quảng cáo;
+|Admin|
+:Sửa thông tin;
+:Bấm nút lưu;
+|Hệ thống|
+:Xử lý;
+
+if (Kiểm tra thông tin) then ( hợp lệ)
+:Lưu quảng cáo;
+stop
+else (không hợp lệ)
+:Hiển thị thông báo lỗi;
+stop
+endif
+
+else (không tồn tại)
+:Báo lỗi không tồn tại;
+stop
+endif
+
+@enduml

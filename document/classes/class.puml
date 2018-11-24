@@ -1,0 +1,28 @@
+@startuml
+
+class Hoc_phan{
++id
++ten
++so_tin_chi
++so_tiet_ly_thuyet
++so_tiet_thuc_hanh
+}
+
+class Setting{
++key
++value
+}
+
+class User{
++id
++name
++phone
++address
++is_admin
++email
++password
+}
+
+
+
+@enduml

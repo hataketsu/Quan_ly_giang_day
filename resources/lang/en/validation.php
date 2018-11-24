@@ -130,7 +130,9 @@ return [
         'detail' => 'thông tin chi tiết',
         'address' => 'địa chỉ',
         'title'=>'tiêu đề',
-        'content'=>'nội dung'
+        'content'=>'nội dung',
+        'old_pw'=>'mật khẩu cũ',
+        'new_pw'=>'mật khẩu mới',
     ],
 
 ];
