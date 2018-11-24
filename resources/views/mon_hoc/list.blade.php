@@ -12,6 +12,7 @@
                         <div class="box-title">Quan ly mon hoc</div>
                     </div>
                     <div class="box-body">
+                        <a href="/mon_hoc/create" class="btn btn-primary"><i class="fa fa-plus"></i> Thêm môn học</a>
                         <ul>
                             @foreach($items as $item)
                                 <li>{{$item->name}}</li>
