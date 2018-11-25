@@ -3,7 +3,7 @@
     <div class="content">
         <ol class="breadcrumb " style="background: white">
             <li><a href="/"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-            <li><a href="/khoa_dao_tao"> Danh sách khoá đào tạo</a></li>
+            <li><a href="/phan_cong_giang_day"> Danh sách phân công giảng dạy</a></li>
             <li class="active">{{$title}}</li>
         </ol>
         <div class="row">
@@ -16,11 +16,10 @@
                         </h3>
                     </div>
                     <div class="box-body">
-                        {!!BootForm::horizontal(["model"=>$item,"store"=>"khoa_dao_tao.store","update"=>"khoa_dao_tao.update","enctype"=>"multipart/form-data","id"=>"edit_form"])!!}
-                        {!!BootForm::text("ten","Tên")!!}
-                        {!!BootForm::select("nganh_id","Ngành",\App\Nganh::get_selects())!!}
-                        {!!BootForm::input("number","nam_nhap","Năm nhập")!!}
-                        {!!BootForm::input("number","so_nam_dao_tao","Số năm đào tạo")!!}
+                        {!!BootForm::horizontal(["model"=>$item,"store"=>"phan_cong_giang_day.store","update"=>"phan_cong_giang_day.update","enctype"=>"multipart/form-data","id"=>"edit_form"])!!}
+                        {!!BootForm::select("giang_vien_id","Giảng viên",\App\Giang_vien::get_selects())!!}
+                        {!!BootForm::select("hoc_phan_id","Học phần",\App\Hoc_phan::get_selects())!!}
+                        {!!BootForm::select("lop_id","Lớp",\App\Lop::get_selects())!!}
                         {!!BootForm::close()!!}
                     </div>
                     <div class="box-footer text-center">

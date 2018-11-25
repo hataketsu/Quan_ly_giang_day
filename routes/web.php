@@ -24,6 +24,7 @@ Route::middleware(['auth'])->group(function () {
                  "Hoc_phan_Controller" => 'hoc_phan',
                  "Lop_Controller" => 'lop',
                  "Giang_vien_Controller" => 'giang_vien',
+                 "Phan_cong_giang_day_Controller" => 'phan_cong_giang_day',
              ] as $controller => $path) {
         Route::resource("/$path", "$controller");
         Route::get("/$path/{id}/delete", "$controller@delete");

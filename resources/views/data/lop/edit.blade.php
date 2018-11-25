@@ -23,7 +23,7 @@
                         {!!BootForm::close()!!}
                     </div>
                     <div class="box-footer text-center">
-                        <a href="javascript:void(0)" onclick="$("#edit_form").submit();" class="text-uppercase"><b>
+                        <a href="javascript:void(0)" onclick="$('#edit_form').submit();" class="text-uppercase"><b>
                                 <i class="fa fa-pencil" style="margin-right: 4px"></i>
                                 Lưu
                             </b></a>

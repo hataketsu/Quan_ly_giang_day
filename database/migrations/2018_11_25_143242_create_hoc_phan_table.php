@@ -15,6 +15,7 @@ class CreateHocPhanTable extends Migration
     {
         Schema::create('hoc_phan', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('ten');
             $table->integer('khoa_dao_tao_id')->unsigned()->index();
             $table->foreign('khoa_dao_tao_id')->references('id')->on('khoa_dao_tao')->onDelete('cascade');
             $table->integer('mon_hoc_id')->unsigned()->index();

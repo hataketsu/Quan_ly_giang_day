@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <ol class="breadcrumb" style="background: white">
                     <li><a href="/"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-                    <li class="active">Danh sách học phần</li>
+                    <li class="active">Danh sách phân công giảng dạy</li>
                 </ol>
             </div>
             <div class="col-md-12">
@@ -16,16 +16,16 @@
 
                     <div class="box-body">
                         <div class="btn-group pull-right">
-                            <a href="/hoc_phan/create" class="btn bg-green"><i class="fa fa-plus"></i> Thêm
-                                học phần mới</a>
+                            <a href="/phan_cong_giang_day/create" class="btn bg-green"><i class="fa fa-plus"></i> Thêm
+                                phân công giảng dạy mới</a>
                             <button class="btn btn-warning" onclick="delete_selected()"><i class="fa fa-remove"></i> Xoá
                                 các
-                                học phần đã chọn
+                                phân công giảng dạy đã chọn
                             </button>
                         </div>
                         <br>
                         <br>
-                        <form action="/hoc_phan/mass_delete" method="post" id="main_list_form">
+                        <form action="/phan_cong_giang_day/mass_delete" method="post" id="main_list_form">
                             @csrf
                             <table id="main_table" class="table table-bordered table-hover">
                                 <thead>
@@ -33,20 +33,15 @@
                                     <th>
                                         Chọn
                                     </th>
-                                    <th>Tên</th>
                                     <th>
-                                        Khoá đào tạo
+                                        Giảng viên
                                     </th>
                                     <th>
-                                        Môn học
+                                        Học phần
                                     </th>
                                     <th>
-                                        Số tín chỉ thực hành
+                                        Lớp
                                     </th>
-                                    <th>
-                                        Số tín chỉ lý thuyết
-                                    </th>
-                                    <th>Số tín chỉ</th>
                                     <th>
                                         Hành động
                                     </th>
@@ -59,19 +54,18 @@
                                             <input type="checkbox" name="checked_{{$item->id}}">
                                         </td>
                                         <td>
-                                            {{$item->ten}}
-                                        </td><td>
-                                            {{$item->khoa_dao_tao->ten}}
+                                            {{$item->giang_vien->ten}}
                                         </td>
                                         <td>
-                                            {{$item->mon_hoc->name}}
+                                            {{$item->hoc_phan->ten}}
                                         </td>
-                                        <td>{{$item->tin_chi_thuc_hanh}}</td>
-                                        <td>{{$item->tin_chi_ly_thuyet}}</td>
-                                        <td>{{$item->tin_chi_ly_thuyet+$item->tin_chi_thuc_hanh}}</td>
+                                        <td>
+                                            {{$item->lop->ten}}
+                                        </td>
                                         <td>
                                             <div class="btn-group">
-                                                <a class="btn btn-primary" href="/hoc_phan/{{$item->id}}/edit">
+                                                <a class="btn btn-primary"
+                                                   href="/phan_cong_giang_day/{{$item->id}}/edit">
                                                     <i class="fa fa-pencil"></i>
                                                     Chỉnh sửa
                                                 </a>
