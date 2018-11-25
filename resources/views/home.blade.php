@@ -8,7 +8,7 @@
 
         <div class="row">
             <div class="col-md-3">
-                <div class="small-box bg-yellow">
+                <div class="small-box bg-light-blue-gradient">
                     <div class="inner">
                         <h3>{{\App\Mon_hoc::query()->count()}}</h3>
 
