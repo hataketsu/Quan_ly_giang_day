@@ -38,10 +38,10 @@
                     <li><a href="/nganh"><i class="fa fa-circle-o"></i> Ngành</a></li>
                     <li><a href="/khoa_dao_tao"><i class="fa fa-circle-o"></i> Khoá đào tạo</a></li>
                     <li><a href="/hoc_phan"><i class="fa fa-circle-o"></i> Học phần</a></li>
-                    <li><a href="/giang_vien"><i class="fa fa-circle-o"></i> Giảng viên</a></li>
-                    <li><a href="/phan_cong_giang_day"><i class="fa fa-circle-o"></i> Phân công giảng dạy</a></li>
-                    <li><a href="/lop"><i class="fa fa-circle-o"></i> Lớp</a></li>
-                    <li><a href="/phong_hoc"><i class="fa fa-circle-o"></i> Phòng học</a></li>
+                    <li><a href="/giang_vien"><i class="fa fa-remove"></i> Giảng viên</a></li>
+                    <li><a href="/phan_cong_giang_day"><i class="fa fa-remove"></i> Phân công giảng dạy</a></li>
+                    <li><a href="/lop"><i class="fa fa-remove"></i> Lớp</a></li>
+                    <li><a href="/phong_hoc"><i class="fa fa-remove"></i> Phòng học</a></li>
                 </ul>
             </li>
             <li class="treeview">
