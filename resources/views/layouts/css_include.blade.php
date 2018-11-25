@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/adminlte/css/AdminLTE.min.css">
 <link rel="stylesheet" href="/adminlte/css/skins/_all-skins.min.css?id=2">
 
+<link rel="stylesheet" href="/bower_components/iCheck/skins/all.css">
 <link rel="stylesheet" href="/bower_components/raty/lib/jquery.raty.css">
 <link rel="stylesheet" type="text/css" href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 <link href="/bower_components/iCheck/skins/all.css" rel="stylesheet">

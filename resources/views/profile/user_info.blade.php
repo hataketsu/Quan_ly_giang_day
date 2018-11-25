@@ -10,10 +10,9 @@
                 {{csrf_field()}}
                 <div class="box-body">
                     @include('web_widgets.form_element.text_input',["name"=>"name","desc"=>"Họ và tên","value"=>Auth::user()->name])
-                    @include('web_widgets.form_element.text_area',["name"=>"about","desc"=>"Giới thiệu bản thân","value"=>Auth::user()->about])
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-info center-block" style="min-width: 180px">Lưu thông tin
+                    <button type="submit" class="btn btn-primary center-block" style="min-width: 180px">Lưu thông tin
                     </button>
                 </div>
             </form>

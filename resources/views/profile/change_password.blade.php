@@ -14,7 +14,7 @@
                     @include('web_widgets.form_element.password',["name"=>"new_pw_confirmation","desc"=>"Nhập lại mật khẩu mới *"])
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-info center-block" style="min-width: 180px">Đổi mật khảu</button>
+                    <button type="submit" class="btn btn-primary center-block" style="min-width: 180px">Đổi mật khảu</button>
                 </div>
             </form>
         </div>

@@ -14,7 +14,7 @@ class Mon_hoc_Controller extends Controller
      */
     public function index()
     {
-        return view('mon_hoc.list', ['items' => Mon_hoc::all(),'title'=>'Danh sach']);
+        return view('data.mon_hoc.list', ['items' => Mon_hoc::all(), 'title' => 'Danh sách môn học']);
     }
 
     /**
@@ -24,7 +24,7 @@ class Mon_hoc_Controller extends Controller
      */
     public function create()
     {
-        return view('mon_hoc.edit', ['item' => new Mon_hoc(),'title'=>"Tạo mon hoc mới"]);
+        return view('data.mon_hoc.edit', ['item' => new Mon_hoc(), 'title' => "Tạo môn học mới"]);
 
     }
 
@@ -70,7 +70,7 @@ class Mon_hoc_Controller extends Controller
      */
     public function edit(Mon_hoc $mon_hoc)
     {
-        return view('mon_hoc.edit', ['item' => $mon_hoc,'title'=>"Sửa mon hoc"]);
+        return view('data.mon_hoc.edit', ['item' => $mon_hoc, 'title' => "Sửa môn học"]);
 
     }
 
@@ -102,6 +102,15 @@ class Mon_hoc_Controller extends Controller
     public function delete($id)
     {
         Mon_hoc::destroy($id);
+        return redirect('/mon_hoc');
+    }
+
+    public function mass_delete(Request $request)
+    {
+        foreach ($request->post() as $key => $value) {
+            if (strpos($key, 'checked') === 0)
+                Mon_hoc::destroy(explode('_', $key)[1]);
+        }
         return redirect('/mon_hoc');
     }
 }

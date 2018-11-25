@@ -133,6 +133,8 @@ return [
         'content'=>'nội dung',
         'old_pw'=>'mật khẩu cũ',
         'new_pw'=>'mật khẩu mới',
+        'so_nam_dao_tao'=>'số năm đào tạo',
+        'nam_nhap'=>'năm nhập',
     ],
 
 ];

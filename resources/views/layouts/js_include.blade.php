@@ -18,6 +18,9 @@
 <script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 
+<script src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/bower_components/iCheck/icheck.min.js"></script>
+<script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="/js/bootstrap-confirmation.min.js"></script>
 <script src="/js/bootbox.min.js"></script>
 <script src="/bower_components/raty/lib/jquery.raty.js"></script>
@@ -30,6 +33,7 @@
         $('.select2').select2();
     });
     _token='{{csrf_token()}}';
+
 </script>
 
 

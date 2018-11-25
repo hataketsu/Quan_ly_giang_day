@@ -16,7 +16,8 @@ class CreateNganhTable extends Migration
         Schema::create('nganh', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('khoa_id');
+            $table->integer('khoa_id')->unsigned()->index();
+            $table->foreign('khoa_id')->references('id')->on('khoa')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -14,10 +14,20 @@
 
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
-    Route::redirect('/home','/');
+    Route::redirect('/home', '/');
     Route::get('/', 'HomeController@index')->name('home');
-    Route::resource('/mon_hoc', 'Mon_hoc_Controller');
-    Route::get('/mon_hoc/{id}/delete', 'Mon_hoc_Controller@delete');
+
+    foreach (['Mon_hoc_Controller' => 'mon_hoc',
+                 "Khoa_Controller" => 'khoa',
+                 "Nganh_Controller" => "nganh",
+                 "Khoa_dao_tao_Controller" => "khoa_dao_tao",
+                 "Hoc_phan_Controller" => 'hoc_phan'
+             ] as $controller => $path) {
+        Route::resource("/$path", "$controller");
+        Route::get("/$path/{id}/delete", "$controller@delete");
+        Route::post("/$path/mass_delete", "$controller@mass_delete");
+    }
+
     Route::get('/logout', function () {
         Auth::logout();
         return redirect('/');

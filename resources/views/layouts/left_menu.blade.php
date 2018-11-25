@@ -26,7 +26,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">DỮ LIỆU</li>
             <li class="treeview">
-                <a href="#">
+                <a href="#" class="auto_opened">
                     <i class="fa fa-dashboard"></i> <span>Nhập dữ liệu</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -34,20 +34,19 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="/mon_hoc"><i class="fa fa-circle-o"></i> Môn học</a></li>
-                    <li><a href="/giao_vien"><i class="fa fa-circle-o"></i> Giảng viên</a></li>
                     <li><a href="/khoa"><i class="fa fa-circle-o"></i> Khoa</a></li>
                     <li><a href="/nganh"><i class="fa fa-circle-o"></i> Ngành</a></li>
-                    <li><a href="/chuong_trinh_dao_tao"><i class="fa fa-circle-o"></i> Chương trình đào tạo</a></li>
+                    <li><a href="/khoa_dao_tao"><i class="fa fa-circle-o"></i> Khoá đào tạo</a></li>
+                    <li><a href="/hoc_phan"><i class="fa fa-circle-o"></i> Học phần</a></li>
+                    <li><a href="/giang_vien"><i class="fa fa-circle-o"></i> Giảng viên</a></li>
                     <li><a href="/phan_cong_giang_day"><i class="fa fa-circle-o"></i> Phân công giảng dạy</a></li>
                     <li><a href="/lop"><i class="fa fa-circle-o"></i> Lớp</a></li>
-                    <li><a href="/mon_hoc"><i class="fa fa-circle-o"></i> Môn học</a></li>
-                    <li><a href="/khoa_dao_tao"><i class="fa fa-circle-o"></i> Khoá đào tạo</a></li>
                     <li><a href="/phong_hoc"><i class="fa fa-circle-o"></i> Phòng học</a></li>
                 </ul>
             </li>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Thống kê</span>
+                    <i class="fa fa-line-chart"></i> <span>Thống kê</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
