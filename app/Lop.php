@@ -12,7 +12,7 @@ class Lop extends Model
     public static function get_selects()
     {
         $ids = Lop::all()->pluck('id');
-        $names = Lop::all()->pluck('name');
+        $names = Lop::all()->pluck('ten');
         return $ids->combine($names);
     }
     public function khoa_dao_tao()

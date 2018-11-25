@@ -30,6 +30,6 @@ class CreateLopTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lops');
+        Schema::dropIfExists('lop');
     }
 }

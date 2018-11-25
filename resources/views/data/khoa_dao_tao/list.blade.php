@@ -54,7 +54,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach(\App\Khoa_dao_tao::all() as $item)
+                                @foreach($items as $item)
                                     <tr>
                                         <td>
                                             <input type="checkbox" name="checked_{{$item->id}}">

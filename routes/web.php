@@ -23,6 +23,7 @@ Route::middleware(['auth'])->group(function () {
                  "Khoa_dao_tao_Controller" => "khoa_dao_tao",
                  "Hoc_phan_Controller" => 'hoc_phan',
                  "Lop_Controller" => 'lop',
+                 "Giang_vien_Controller" => 'giang_vien',
              ] as $controller => $path) {
         Route::resource("/$path", "$controller");
         Route::get("/$path/{id}/delete", "$controller@delete");

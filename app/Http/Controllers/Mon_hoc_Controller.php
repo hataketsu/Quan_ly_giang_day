@@ -59,7 +59,7 @@ class Mon_hoc_Controller extends Controller
      */
     public function show(Mon_hoc $mon_hoc)
     {
-        //
+        return view('data.mon_hoc.list', ['items' => [$mon_hoc], 'title' => 'Xem môn học']);
     }
 
     /**

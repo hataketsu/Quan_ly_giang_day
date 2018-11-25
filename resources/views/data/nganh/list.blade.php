@@ -48,7 +48,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach(\App\Nganh::all() as $item)
+                                @foreach($items as $item)
                                     <tr>
                                         <td>
                                             <input type="checkbox" name="checked_{{$item->id}}">
