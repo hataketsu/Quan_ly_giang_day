@@ -1,5 +1,5 @@
-@extends('layouts.basic')
-@section('content')
+@extends("layouts.basic")
+@section("content")
     <div class="content">
         <ol class="breadcrumb " style="background: white">
             <li><a href="/"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
@@ -16,15 +16,15 @@
                         </h3>
                     </div>
                     <div class="box-body">
-                        {!!BootForm::horizontal(['model'=>$item,'store'=>'hoc_phan.store','update'=>'hoc_phan.update','enctype'=>"multipart/form-data",'id'=>'edit_form'])!!}
-                        {!!BootForm::select('khoa_dao_tao_id','Khoá đào tạo',\App\Khoa_dao_tao::get_selects())!!}
-                        {!!BootForm::select('mon_hoc_id','Môn học',\App\Mon_hoc::get_selects())!!}
-                        {!!BootForm::input('number','tin_chi_thuc_hanh','Số tín chỉ thực hành')!!}
-                        {!!BootForm::input('number','tin_chi_ly_thuyet','Số tín chỉ lý thuyết')!!}
+                        {!!BootForm::horizontal(["model"=>$item,"store"=>"hoc_phan.store","update"=>"hoc_phan.update","enctype"=>"multipart/form-data","id"=>"edit_form"])!!}
+                        {!!BootForm::select("khoa_dao_tao_id","Khoá đào tạo",\App\Khoa_dao_tao::get_selects())!!}
+                        {!!BootForm::select("mon_hoc_id","Môn học",\App\Mon_hoc::get_selects())!!}
+                        {!!BootForm::input("number","tin_chi_thuc_hanh","Số tín chỉ thực hành")!!}
+                        {!!BootForm::input("number","tin_chi_ly_thuyet","Số tín chỉ lý thuyết")!!}
                         {!!BootForm::close()!!}
                     </div>
                     <div class="box-footer text-center">
-                        <a href="javascript:void(0)" onclick="$('#edit_form').submit();" class="text-uppercase"><b>
+                        <a href="javascript:void(0)" onclick="$("#edit_form").submit();" class="text-uppercase"><b>
                                 <i class="fa fa-pencil" style="margin-right: 4px"></i>
                                 Lưu
                             </b></a>

@@ -1,5 +1,5 @@
-@extends('layouts.basic')
-@section('content')
+@extends("layouts.basic")
+@section("content")
     <div class="content">
         <div class="row">
             <div class="col-md-12">

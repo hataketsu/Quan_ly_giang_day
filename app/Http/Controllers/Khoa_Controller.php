@@ -14,7 +14,7 @@ class Khoa_Controller extends Controller
      */
     public function index()
     {
-        return view('data.khoa.list', ['items' => Khoa::all(), 'title' => 'Danh sách khoa']);
+        return view("data.khoa.list", ["items" => Khoa::all(), "title" => "Danh sách khoa"]);
     }
 
     /**
@@ -24,7 +24,7 @@ class Khoa_Controller extends Controller
      */
     public function create()
     {
-        return view('data.khoa.edit', ['item' => new Khoa(), 'title' => "Tạo khoa mới"]);
+        return view("data.khoa.edit", ["item" => new Khoa(), "title" => "Tạo khoa mới"]);
 
     }
 
@@ -37,14 +37,14 @@ class Khoa_Controller extends Controller
     public function store(Request $request)
     {
         $this->process_save($request, new Khoa);
-        return redirect('/khoa');
+        return redirect("/khoa");
     }
 
     private function process_save(Request $request, Khoa $khoa)
     {
         $request->validate(
             [
-                'name' => 'required|string',
+                "name" => "required|string",
             ]
         );
         $khoa->fill($request->all());
@@ -59,7 +59,7 @@ class Khoa_Controller extends Controller
      */
     public function show(Khoa $khoa)
     {
-        //
+        return view("data.khoa.list", ["items" => [$khoa], "title" => "Xem khoa"]);
     }
 
     /**
@@ -70,7 +70,7 @@ class Khoa_Controller extends Controller
      */
     public function edit(Khoa $khoa)
     {
-        return view('data.khoa.edit', ['item' => $khoa, 'title' => "Sửa khoa"]);
+        return view("data.khoa.edit", ["item" => $khoa, "title" => "Sửa khoa"]);
 
     }
 
@@ -84,7 +84,7 @@ class Khoa_Controller extends Controller
     public function update(Request $request, Khoa $khoa)
     {
         $this->process_save($request, $khoa);
-        return redirect('/khoa');
+        return redirect("/khoa");
     }
 
     /**
@@ -96,21 +96,21 @@ class Khoa_Controller extends Controller
     public function destroy(Khoa $khoa)
     {
         Khoa::destroy($khoa->id);
-        return redirect('/khoa');
+        return redirect("/khoa");
     }
 
     public function delete($id)
     {
         Khoa::destroy($id);
-        return redirect('/khoa');
+        return redirect("/khoa");
     }
 
     public function mass_delete(Request $request)
     {
         foreach ($request->post() as $key => $value) {
-            if (strpos($key, 'checked') === 0)
-                Khoa::destroy(explode('_',$key)[1]);
+            if (strpos($key, "checked") === 0)
+                Khoa::destroy(explode("_",$key)[1]);
         }
-        return redirect('/khoa');
+        return redirect("/khoa");
     }
 }

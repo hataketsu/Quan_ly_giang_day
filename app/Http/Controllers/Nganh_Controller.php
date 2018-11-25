@@ -14,7 +14,7 @@ class Nganh_Controller extends Controller
      */
     public function index()
     {
-        return view('data.nganh.list', ['items' => Nganh::all(), 'title' => 'Danh sách ngành']);
+        return view("data.nganh.list", ["items" => Nganh::all(), "title" => "Danh sách ngành"]);
     }
 
     /**
@@ -24,7 +24,7 @@ class Nganh_Controller extends Controller
      */
     public function create()
     {
-        return view('data.nganh.edit', ['item' => new Nganh(), 'title' => "Tạo ngành mới"]);
+        return view("data.nganh.edit", ["item" => new Nganh(), "title" => "Tạo ngành mới"]);
 
     }
 
@@ -37,15 +37,15 @@ class Nganh_Controller extends Controller
     public function store(Request $request)
     {
         $this->process_save($request, new Nganh);
-        return redirect('/nganh');
+        return redirect("/nganh");
     }
 
     private function process_save(Request $request, Nganh $nganh)
     {
         $request->validate(
             [
-                'name' => 'required|string',
-                'khoa_id' => 'required',
+                "name" => "required|string",
+                "khoa_id" => "required",
             ]
         );
         $nganh->fill($request->all());
@@ -60,7 +60,7 @@ class Nganh_Controller extends Controller
      */
     public function show(Nganh $nganh)
     {
-        //
+        return view("data.nganh.list", ["items" => [$nganh], "title" => "Xem ngành"]);
     }
 
     /**
@@ -71,7 +71,7 @@ class Nganh_Controller extends Controller
      */
     public function edit(Nganh $nganh)
     {
-        return view('data.nganh.edit', ['item' => $nganh, 'title' => "Sửa ngành"]);
+        return view("data.nganh.edit", ["item" => $nganh, "title" => "Sửa ngành"]);
 
     }
 
@@ -85,7 +85,7 @@ class Nganh_Controller extends Controller
     public function update(Request $request, Nganh $nganh)
     {
         $this->process_save($request, $nganh);
-        return redirect('/nganh');
+        return redirect("/nganh");
     }
 
     /**
@@ -97,21 +97,21 @@ class Nganh_Controller extends Controller
     public function destroy(Nganh $nganh)
     {
         Nganh::destroy($nganh->id);
-        return redirect('/nganh');
+        return redirect("/nganh");
     }
 
     public function delete($id)
     {
         Nganh::destroy($id);
-        return redirect('/nganh');
+        return redirect("/nganh");
     }
 
     public function mass_delete(Request $request)
     {
         foreach ($request->post() as $key => $value) {
-            if (strpos($key, 'checked') === 0)
-                Nganh::destroy(explode('_', $key)[1]);
+            if (strpos($key, "checked") === 0)
+                Nganh::destroy(explode("_", $key)[1]);
         }
-        return redirect('/nganh');
+        return redirect("/nganh");
     }
 }

@@ -12,9 +12,10 @@ class Giang_vien_Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('data.giang_vien.list', ['items' => Giang_vien::all(), 'title' => 'Danh sách giảng viên']);
+        return view("data.giang_vien.list", ["items" => Giang_vien::all(), "title" => "Danh sách giảng viên"]);
     }
 
     /**
@@ -24,7 +25,7 @@ class Giang_vien_Controller extends Controller
      */
     public function create()
     {
-        return view('data.giang_vien.edit', ['item' => new Giang_vien(), 'title' => "Tạo giảng viên mới"]);
+        return view("data.giang_vien.edit", ["item" => new Giang_vien(), "title" => "Tạo giảng viên mới"]);
 
     }
 
@@ -37,20 +38,20 @@ class Giang_vien_Controller extends Controller
     public function store(Request $request)
     {
         $this->process_save($request, new Giang_vien);
-        return redirect('/giang_vien');
+        return redirect("/giang_vien");
     }
 
     private function process_save(Request $request, Giang_vien $giang_vien)
     {
         $request->validate(
             [
-                'ten' => 'required|string',
-                'chuyen_mon' => 'required|string',
-                'chuc_vu' => 'required|string',
-                'ngay_sinh' => 'required|string',
-                'gioi_tinh' => 'required|numeric',
-                'dien_thoai' => 'required|string',
-                'khoa_id' => 'required|numeric',
+                "ten" => "required|string",
+                "chuyen_mon" => "required|string",
+                "chuc_vu" => "required|string",
+                "ngay_sinh" => "required|string",
+                "gioi_tinh" => "required|numeric",
+                "dien_thoai" => "required|string",
+                "khoa_id" => "required|numeric",
             ]
         );
         $giang_vien->fill($request->all());
@@ -65,7 +66,7 @@ class Giang_vien_Controller extends Controller
      */
     public function show(Giang_vien $giang_vien)
     {
-        return view('data.giang_vien.list', ['items' => [$giang_vien], 'title' => 'Xem giảng viên']);
+        return view("data.giang_vien.list", ["items" => [$giang_vien], "title" => "Xem giảng viên"]);
     }
 
     /**
@@ -76,7 +77,7 @@ class Giang_vien_Controller extends Controller
      */
     public function edit(Giang_vien $giang_vien)
     {
-        return view('data.giang_vien.edit', ['item' => $giang_vien, 'title' => "Sửa giảng viên"]);
+        return view("data.giang_vien.edit", ["item" => $giang_vien, "title" => "Sửa giảng viên"]);
 
     }
 
@@ -90,7 +91,7 @@ class Giang_vien_Controller extends Controller
     public function update(Request $request, Giang_vien $giang_vien)
     {
         $this->process_save($request, $giang_vien);
-        return redirect('/giang_vien');
+        return redirect("/giang_vien");
     }
 
     /**
@@ -102,21 +103,21 @@ class Giang_vien_Controller extends Controller
     public function destroy(Giang_vien $giang_vien)
     {
         Giang_vien::destroy($giang_vien->id);
-        return redirect('/giang_vien');
+        return redirect("/giang_vien");
     }
 
     public function delete($id)
     {
         Giang_vien::destroy($id);
-        return redirect('/giang_vien');
+        return redirect("/giang_vien");
     }
 
     public function mass_delete(Request $request)
     {
         foreach ($request->post() as $key => $value) {
-            if (strpos($key, 'checked') === 0)
-                Giang_vien::destroy(explode('_', $key)[1]);
+            if (strpos($key, "checked") === 0)
+                Giang_vien::destroy(explode("_", $key)[1]);
         }
-        return redirect('/giang_vien');
+        return redirect("/giang_vien");
     }
 }

@@ -1,6 +1,6 @@
-@extends('layouts.basic')
+@extends("layouts.basic")
 
-@section('content')
+@section("content")
     <div class="content">
         <ol class="breadcrumb " style="background: white">
             <li><a href="/"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
@@ -10,10 +10,10 @@
         <div class="row">
 
             <div class="col-md-9">
-                @yield('contentx')
+                @yield("contentx")
             </div>
             <div class="col-md-3">
-                @include('profile.menu')
+                @include("profile.menu")
             </div>
         </div>
     </div>

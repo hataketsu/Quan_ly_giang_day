@@ -1,5 +1,5 @@
-@extends('layouts.basic')
-@section('content')
+@extends("layouts.basic")
+@section("content")
     <div class="content">
         <ol class="breadcrumb " style="background: white">
             <li><a href="/"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
@@ -16,14 +16,14 @@
                         </h3>
                     </div>
                     <div class="box-body">
-                        {!!BootForm::horizontal(['model'=>$item,'store'=>'lop.store','update'=>'lop.update','enctype'=>"multipart/form-data",'id'=>'edit_form'])!!}
-                        {!!BootForm::text('ten','Tên')!!}
-                        {!!BootForm::select('khoa_dao_tao_id','Khoá đào tạo',\App\Khoa_dao_tao::get_selects())!!}
-                        {!!BootForm::input('number','so_sinh_vien','Số lượng sinh viên')!!}
+                        {!!BootForm::horizontal(["model"=>$item,"store"=>"lop.store","update"=>"lop.update","enctype"=>"multipart/form-data","id"=>"edit_form"])!!}
+                        {!!BootForm::text("ten","Tên")!!}
+                        {!!BootForm::select("khoa_dao_tao_id","Khoá đào tạo",\App\Khoa_dao_tao::get_selects())!!}
+                        {!!BootForm::input("number","so_sinh_vien","Số lượng sinh viên")!!}
                         {!!BootForm::close()!!}
                     </div>
                     <div class="box-footer text-center">
-                        <a href="javascript:void(0)" onclick="$('#edit_form').submit();" class="text-uppercase"><b>
+                        <a href="javascript:void(0)" onclick="$("#edit_form").submit();" class="text-uppercase"><b>
                                 <i class="fa fa-pencil" style="margin-right: 4px"></i>
                                 Lưu
                             </b></a>

@@ -1,5 +1,5 @@
-@extends('layouts.basic')
-@section('content')
+@extends("layouts.basic")
+@section("content")
     <div class="content">
         <div class="row">
             <div class="col-md-12">
@@ -68,7 +68,7 @@
                                             {{$item->ngay_sinh}}
                                         </td>
                                         <td>
-                                            {{['Nam','Nữ'][$item->gioi_tinh]}}
+                                            {{["Nam","Nữ"][$item->gioi_tinh]}}
                                         </td>
                                         <td>
                                             {{$item->dien_thoai}}

@@ -4,7 +4,7 @@
             <label>
 				<?php if ( ! isset( $value ) ) $value = ""?>
                 <input type="checkbox"
-                       name="remember" {{ old('remember') ? 'checked' : '' }}> Nhớ tài khoản
+                       name="remember" {{ old("remember") ? "checked" : "" }}> Nhớ tài khoản
             </label>
         </div>
     </div>

@@ -16,10 +16,10 @@ class UserTableSeeder extends Seeder
     {
 
         $users[] = [
-            'email' => 'hataketsuxx@gmail.com',
-            'name'=>'SuperNova',
-            'role'=>'admin',
-            'password' => Hash::make('456123')];
+            "email" => "hataketsuxx@gmail.com",
+            "name"=>"SuperNova",
+            "role"=>"admin",
+            "password" => Hash::make("456123")];
 
         User::insert($users);
 

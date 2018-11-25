@@ -14,7 +14,7 @@ class Lop_Controller extends Controller
      */
     public function index()
     {
-        return view('data.lop.list', ['items' => Lop::all(), 'title' => 'Danh sách lớp']);
+        return view("data.lop.list", ["items" => Lop::all(), "title" => "Danh sách lớp"]);
     }
 
     /**
@@ -24,7 +24,7 @@ class Lop_Controller extends Controller
      */
     public function create()
     {
-        return view('data.lop.edit', ['item' => new Lop(), 'title' => "Tạo lớp mới"]);
+        return view("data.lop.edit", ["item" => new Lop(), "title" => "Tạo lớp mới"]);
 
     }
 
@@ -37,16 +37,16 @@ class Lop_Controller extends Controller
     public function store(Request $request)
     {
         $this->process_save($request, new Lop);
-        return redirect('/lop');
+        return redirect("/lop");
     }
 
     private function process_save(Request $request, Lop $lop)
     {
         $request->validate(
             [
-                'ten' => 'required|string',
-                'khoa_dao_tao_id' => 'required|numeric',
-                'so_sinh_vien' => 'required|numeric',
+                "ten" => "required|string",
+                "khoa_dao_tao_id" => "required|numeric",
+                "so_sinh_vien" => "required|numeric",
             ]
         );
         $lop->fill($request->all());
@@ -61,7 +61,7 @@ class Lop_Controller extends Controller
      */
     public function show(Lop $lop)
     {
-        //
+        return view("data.lop.list", ["items" => [$lop], "title" => "Xem lớp"]);
     }
 
     /**
@@ -72,7 +72,7 @@ class Lop_Controller extends Controller
      */
     public function edit(Lop $lop)
     {
-        return view('data.lop.edit', ['item' => $lop, 'title' => "Sửa lớp"]);
+        return view("data.lop.edit", ["item" => $lop, "title" => "Sửa lớp"]);
 
     }
 
@@ -86,7 +86,7 @@ class Lop_Controller extends Controller
     public function update(Request $request, Lop $lop)
     {
         $this->process_save($request, $lop);
-        return redirect('/lop');
+        return redirect("/lop");
     }
 
     /**
@@ -98,21 +98,21 @@ class Lop_Controller extends Controller
     public function destroy(Lop $lop)
     {
         Lop::destroy($lop->id);
-        return redirect('/lop');
+        return redirect("/lop");
     }
 
     public function delete($id)
     {
         Lop::destroy($id);
-        return redirect('/lop');
+        return redirect("/lop");
     }
 
     public function mass_delete(Request $request)
     {
         foreach ($request->post() as $key => $value) {
-            if (strpos($key, 'checked') === 0)
-                Lop::destroy(explode('_', $key)[1]);
+            if (strpos($key, "checked") === 0)
+                Lop::destroy(explode("_", $key)[1]);
         }
-        return redirect('/lop');
+        return redirect("/lop");
     }
 }
