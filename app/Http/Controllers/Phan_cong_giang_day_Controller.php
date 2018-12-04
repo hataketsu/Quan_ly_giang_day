@@ -42,13 +42,17 @@ class Phan_cong_giang_day_Controller extends Controller
 
     private function process_save(Request $request, Phan_cong_giang_day $phan_cong_giang_day)
     {
+
         $request->validate(
             [
                 "giang_vien_id" => "required|numeric",
                 "hoc_phan_id" => "required|numeric",
-                "lop_id" => "required|numeric"
+                "lop_id" => "required|numeric",
+                "ngay_day" => "required|date",
+                "tiet_hoc" => "required"
             ]
         );
+        $phan_cong_giang_day->tiet_hoc = json_encode($request->post('tiet_hoc'));
         $phan_cong_giang_day->fill($request->all());
         $phan_cong_giang_day->save();
     }

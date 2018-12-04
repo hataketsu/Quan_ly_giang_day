@@ -106,8 +106,8 @@ return [
         'email' => [
             'unique' => 'Email này đã được đăng ký bởi người khác.'
         ],
-        'password'=>[
-            'confirmed'=>'Mật khẩu không khớp, vui lòng thử lại.'
+        'password' => [
+            'confirmed' => 'Mật khẩu không khớp, vui lòng thử lại.'
         ]
 
     ],
@@ -129,12 +129,14 @@ return [
         'phone' => 'số điện thoại',
         'detail' => 'thông tin chi tiết',
         'address' => 'địa chỉ',
-        'title'=>'tiêu đề',
-        'content'=>'nội dung',
-        'old_pw'=>'mật khẩu cũ',
-        'new_pw'=>'mật khẩu mới',
-        'so_nam_dao_tao'=>'số năm đào tạo',
-        'nam_nhap'=>'năm nhập',
+        'title' => 'tiêu đề',
+        'content' => 'nội dung',
+        'old_pw' => 'mật khẩu cũ',
+        'new_pw' => 'mật khẩu mới',
+        'so_nam_dao_tao' => 'số năm đào tạo',
+        'nam_nhap' => 'năm nhập',
+        'tiet_hoc' => 'tiết học',
+        'ngay_day' => 'ngày dạy',
     ],
 
 ];
