@@ -41,6 +41,7 @@
                     <li><a href="/lop"><i class="fa fa-circle-o"></i> Lớp</a></li>
                     <li><a href="/giang_vien"><i class="fa fa-circle-o"></i> Giảng viên</a></li>
                     <li><a href="/phan_cong_giang_day"><i class="fa fa-circle-o"></i> Phân công giảng dạy</a></li>
+                    <li><a href="/phong_hoc"><i class="fa fa-circle-o"></i> Phòng học</a></li>
                 </ul>
             </li>
             <li class="treeview">

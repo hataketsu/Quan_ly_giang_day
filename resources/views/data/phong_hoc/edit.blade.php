@@ -3,7 +3,7 @@
     <div class="content">
         <ol class="breadcrumb " style="background: white">
             <li><a href="/"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
-            <li><a href="/phan_cong_giang_day"> Danh sách phân công giảng dạy</a></li>
+            <li><a href="/phong_hoc"> Danh sách phòng học</a></li>
             <li class="active">{{$title}}</li>
         </ol>
         <div class="row">
@@ -16,13 +16,10 @@
                         </h3>
                     </div>
                     <div class="box-body">
-                        {!!BootForm::horizontal(["model"=>$item,"store"=>"phan_cong_giang_day.store","update"=>"phan_cong_giang_day.update","enctype"=>"multipart/form-data","id"=>"edit_form"])!!}
-                        {!!BootForm::select("giang_vien_id","Giảng viên",\App\Giang_vien::get_selects())!!}
-                        {!!BootForm::select("hoc_phan_id","Học phần",\App\Hoc_phan::get_selects())!!}
-                        {!!BootForm::select("tiet_hoc[]","Tiết học",\App\Hoc_phan::getClasses(),json_decode($item->tiet_hoc),['multiple' => 'multiple','class'=>'select2'])!!}
-                        {!!BootForm::date("ngay_day","Ngày", new \DateTime())!!}
-                        {!!BootForm::select("lop_id","Lớp",\App\Lop::get_selects())!!}
-                        {!!BootForm::select("phong_hoc_id","Phòng học",\App\Phong_hoc::get_selects())!!}
+                        {!!BootForm::horizontal(["model"=>$item,"store"=>"phong_hoc.store","update"=>"phong_hoc.update","enctype"=>"multipart/form-data","id"=>"edit_form"])!!}
+                        {!!BootForm::text("ten","Tên")!!}
+                        {!!BootForm::number("so_ban","Số bàn")!!}
+                        {!!BootForm::text("dia_diem","Địa điểm")!!}
                         {!!BootForm::close()!!}
                     </div>
                     <div class="box-footer text-center">
