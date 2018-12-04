@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Hoc_phan;
 use App\Phan_cong_giang_day;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class Phan_cong_giang_day_Controller extends Controller
 {
@@ -49,11 +51,25 @@ class Phan_cong_giang_day_Controller extends Controller
                 "hoc_phan_id" => "required|numeric",
                 "lop_id" => "required|numeric",
                 "ngay_day" => "required|date",
-                "tiet_hoc" => "required"
+                "tiet_hoc" => "required",
+                "phong_hoc_id" => "required"
             ]
         );
+
         $phan_cong_giang_day->tiet_hoc = json_encode($request->post('tiet_hoc'));
         $phan_cong_giang_day->fill($request->all());
+        $cung_ngay_cung_phong = Phan_cong_giang_day::query()->where('phong_hoc_id', $phan_cong_giang_day->phong_hoc_id)->where('ngay_day', $phan_cong_giang_day->ngay_day)->get();
+        foreach ($cung_ngay_cung_phong as $cung) {
+            if ($cung->id == $phan_cong_giang_day->id)
+                continue;
+            foreach ($request->post('tiet_hoc') as $tiet) {
+                if (in_array($tiet, json_decode($cung->tiet_hoc))) {
+                    $msg = Hoc_phan::getClasses()[$tiet] . " không còn trống";
+                    throw ValidationException::withMessages(['tiet_hoc' => $msg]);
+                }
+            }
+        }
+
         $phan_cong_giang_day->save();
     }
 

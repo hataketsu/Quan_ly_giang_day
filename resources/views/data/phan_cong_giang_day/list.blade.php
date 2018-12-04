@@ -42,6 +42,9 @@
                                     <th>
                                         Lớp
                                     </th>
+                                    <th>Phòng học</th>
+                                    <th>Ngày dạy</th>
+                                    <th>Tiết học</th>
                                     <th>
                                         Hành động
                                     </th>
@@ -62,6 +65,11 @@
                                         <td>
                                             {{$item->lop->ten}}
                                         </td>
+                                        <td>
+                                            {{$item->phong_hoc->ten}}
+                                        </td>
+                                        <td>{{$item->ngay_day}}</td>
+                                        <td>{{$item->get_text_tiet_hoc()}}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn btn-primary"

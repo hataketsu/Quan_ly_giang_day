@@ -15,4 +15,9 @@ class Phong_hoc extends Model
         $names = Phong_hoc::all()->pluck('ten');
         return $ids->combine($names);
     }
+
+    public function phan_cong_giang_day()
+    {
+        return $this->hasMany(Phan_cong_giang_day::class);
+    }
 }
