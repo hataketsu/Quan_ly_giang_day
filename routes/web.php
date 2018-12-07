@@ -16,7 +16,6 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::redirect('/home', '/');
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get("/phan_cong_giang_day/tim_kiem_nang_cao", "Phan_cong_giang_day_Controller@advanced_search");
 
     foreach (['Mon_hoc_Controller' => 'mon_hoc',
                  "Khoa_Controller" => 'khoa',

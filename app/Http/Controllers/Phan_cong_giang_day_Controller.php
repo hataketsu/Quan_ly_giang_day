@@ -23,7 +23,7 @@ class Phan_cong_giang_day_Controller extends Controller
             $end_time = $request->get('end');
             $date_range = "$start_time - $end_time";
             $items = Phan_cong_giang_day::query()->whereDate('ngay_bat_dau', '>=', new Carbon($start_time))
-                ->whereDate('ngay_bat_dau', '<=',new Carbon($end_time))->get();
+                ->whereDate('ngay_bat_dau', '<=', new Carbon($end_time))->get();
             $items2 = Phan_cong_giang_day::query()->whereDate('ngay_ket_thuc', '>=', new Carbon($start_time))
                 ->whereDate('ngay_ket_thuc', '<=', new Carbon($end_time))->get();
             $items = $items->merge($items2)->unique();
@@ -77,17 +77,23 @@ class Phan_cong_giang_day_Controller extends Controller
         $phan_cong_giang_day->tiet_hoc = json_encode($request->post('tiet_hoc'));
         $phan_cong_giang_day->ngay_trong_tuan = json_encode($request->post('ngay_trong_tuan'));
         $phan_cong_giang_day->fill($request->all());
-//        $cung_ngay_cung_phong = Phan_cong_giang_day::query()->where('phong_hoc_id', $phan_cong_giang_day->phong_hoc_id)->where('ngay_day', $phan_cong_giang_day->ngay_day)->get();
-//        foreach ($cung_ngay_cung_phong as $cung) {
-//            if ($cung->id == $phan_cong_giang_day->id)
-//                continue;
-//            foreach ($request->post('tiet_hoc') as $tiet) {
-//                if (in_array($tiet, json_decode($cung->tiet_hoc))) {
-//                    $msg = Hoc_phan::getClasses()[$tiet] . " không còn trống";
-//                    throw ValidationException::withMessages(['tiet_hoc' => $msg]);
-//                }
-//            }
-//        }
+
+        $items = Phan_cong_giang_day::query()->whereDate('ngay_bat_dau', '>=', new Carbon($phan_cong_giang_day->ngay_bat_dau))
+            ->whereDate('ngay_bat_dau', '<=', new Carbon($phan_cong_giang_day->ngay_ket_thuc))->get();
+        $items2 = Phan_cong_giang_day::query()->whereDate('ngay_ket_thuc', '>=', new Carbon($phan_cong_giang_day->ngay_bat_dau))
+            ->whereDate('ngay_ket_thuc', '<=', new Carbon($phan_cong_giang_day->ngay_ket_thuc))->get();
+        $items = $items->merge($items2)->unique();
+        foreach ($items as $phan_cong) {
+            if ($phan_cong->id == $phan_cong_giang_day->id)
+                continue;
+
+            foreach ($request->post('tiet_hoc') as $tiet) {
+                if (in_array($tiet, json_decode($phan_cong->tiet_hoc))) {
+                    $msg = Hoc_phan::getClasses()[$tiet] . " không còn trống do phân công <a href='/phan_cong_giang_day/$phan_cong->id'>này</a> đã lên lịch trước.";
+                    throw ValidationException::withMessages(['tiet_hoc' => $msg]);
+                }
+            }
+        }
 
         $phan_cong_giang_day->save();
     }
@@ -100,7 +106,7 @@ class Phan_cong_giang_day_Controller extends Controller
      */
     public function show(Phan_cong_giang_day $phan_cong_giang_day)
     {
-        return view("data.phan_cong_giang_day.list", ["items" => [$phan_cong_giang_day], "title" => "Xem phân công giảng dạy"]);
+        return view("data.phan_cong_giang_day.list", ["items" => [$phan_cong_giang_day], "title" => "Xem phân công giảng dạy",'date_range' => '']);
     }
 
     /**
@@ -164,8 +170,4 @@ class Phan_cong_giang_day_Controller extends Controller
         return abort(403, 'Tài khoản này không phải giảng viên');
     }
 
-    public function advanced_search()
-    {
-        return view("data.phan_cong_giang_day.list", ["items" => Phan_cong_giang_day::all(), "title" => "Danh sách phân công giảng dạy"]);
-    }
 }
