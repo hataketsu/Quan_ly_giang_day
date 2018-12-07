@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Hoc_phan;
 use App\Phan_cong_giang_day;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -15,9 +16,23 @@ class Phan_cong_giang_day_Controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view("data.phan_cong_giang_day.list", ["items" => Phan_cong_giang_day::all(), "title" => "Danh sách phân công giảng dạy"]);
+        if ($request->has('start') and $request->has('end')) {
+            $start_time = $request->get('start');
+            $end_time = $request->get('end');
+            $date_range = "$start_time - $end_time";
+            $items = Phan_cong_giang_day::query()->whereDate('ngay_bat_dau', '>=', new Carbon($start_time))
+                ->whereDate('ngay_bat_dau', '<=',new Carbon($end_time))->get();
+            $items2 = Phan_cong_giang_day::query()->whereDate('ngay_ket_thuc', '>=', new Carbon($start_time))
+                ->whereDate('ngay_ket_thuc', '<=', new Carbon($end_time))->get();
+            $items = $items->merge($items2)->unique();
+        } else {
+            $date_range = 'Lọc theo thời gian';
+            $items = Phan_cong_giang_day::all();
+        }
+        return view("data.phan_cong_giang_day.list", ["items" => $items, "title" => "Danh sách phân công giảng dạy",
+            'date_range' => $date_range,]);
     }
 
     /**
@@ -145,8 +160,12 @@ class Phan_cong_giang_day_Controller extends Controller
         if (\Auth::user()->role == 'giang_vien') {
             return view("data.phan_cong_giang_day.list", ["items" => \Auth::user()->giang_vien->phan_cong_giang_day, "title" => "Danh sách phân công giảng dạy"]);
 
-        } else
-            abort(403, 'Tài khoản này không phải giảng viên');
+        }
+        return abort(403, 'Tài khoản này không phải giảng viên');
+    }
 
+    public function advanced_search()
+    {
+        return view("data.phan_cong_giang_day.list", ["items" => Phan_cong_giang_day::all(), "title" => "Danh sách phân công giảng dạy"]);
     }
 }

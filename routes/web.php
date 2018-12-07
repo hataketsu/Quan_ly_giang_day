@@ -16,6 +16,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
     Route::redirect('/home', '/');
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get("/phan_cong_giang_day/tim_kiem_nang_cao", "Phan_cong_giang_day_Controller@advanced_search");
 
     foreach (['Mon_hoc_Controller' => 'mon_hoc',
                  "Khoa_Controller" => 'khoa',
@@ -33,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post("/$path/mass_delete", "$controller@mass_delete");
     }
 
+
     Route::get('/logout', function () {
         Auth::logout();
         return redirect('/');
@@ -48,5 +50,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/change_avatar', "ProfileController@change_avatar");
     Route::post('/profile/change_avatar', "ProfileController@change_avatar");
     Route::get('/profile/phan_cong_giang_day', "Phan_cong_giang_day_Controller@from_user");
+
 
 });

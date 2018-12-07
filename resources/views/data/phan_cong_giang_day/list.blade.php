@@ -25,15 +25,28 @@
                                     các
                                     phân công giảng dạy đã chọn
                                 </button>
+                                <button id="reportrange" class="btn btn-primary">
+                                    <i class="fa fa-calendar"></i>
+
+                                    <span>{{$date_range}}</span>
+                                </button>
+
                             </div>
+
                         @elseif(Auth::user()->role=='giang_vien')
                             <div class="btn-group pull-right">
                                 <a href="/profile/phan_cong_giang_day" class="btn bg-green"><i class="fa fa-user"></i>
                                     Phân công giảng dạy của tôi</a>
                             </div>
+                            <button id="reportrange" class="btn btn-primary">
+                                <i class="fa fa-calendar"></i>
+
+                                <span>{{$date_range}}</span>
+                            </button>
                         @endif
                         <br>
                         <br>
+
                         <form action="/phan_cong_giang_day/mass_delete" method="post" id="main_list_form">
                             @csrf
                             <table id="main_table" class="table table-bordered table-hover">
@@ -107,6 +120,32 @@
         </div>
     </div>
 
+    <form method="get" id="time_form">
+        <input type="hidden" id="start_time" name="start" value="{{old('start')}}">
+        <input type="hidden" id="end_time" name="end" value="{{old('end')}}">
+    </form>
 
+    <script>
+        var cb = function (start, end, label) {
+            $("#start_time").val(start.format('MMMM D, YYYY'));
+            $("#end_time").val(end.format('MMMM D, YYYY'));
+            $('#time_form').submit();
+        };
+        var optionSet = {
+            startDate: moment().subtract(7, 'days'),
+            endDate: moment(),
+            opens: 'left',
+            ranges: {
+                'Trong 1 tuần': [moment().subtract(6, 'days'), moment()],
+                'Trong 1 tháng': [moment().subtract(29, 'days'), moment()],
+                'Tháng này': [moment().startOf('month'), moment().endOf('month')],
+                'Tháng trước': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        };
+
+        $(function () {
+            $('#reportrange').daterangepicker(optionSet, cb);
+        });
+    </script>
 @endsection
 
