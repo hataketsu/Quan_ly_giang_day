@@ -8,7 +8,7 @@ class Nganh extends Model
 {
     protected $table = 'nganh';
     protected $fillable = ['name', 'khoa_id', "dao_tao_dh", "dao_tao_cd", "dao_tao_tc", "dao_tao_nghe", "dao_tao_trc"];
-    protected $attributes = ['name' => 'Chua co ten'];
+    protected $attributes = ['name' => 'Chua co ten','dao_tao_dh'=>'','dao_tao_cd'=>'','dao_tao_tc'=>'','dao_tao_nghe'=>'','dao_tao_trc'=>''];
 
     public function khoa()
     {
