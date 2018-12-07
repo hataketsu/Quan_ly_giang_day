@@ -42,6 +42,11 @@
                                     <th>
                                         Khoa
                                     </th>
+                                    <th>Đào tạo Đại học</th>
+                                    <th>Đào tạo Cao đẳng</th>
+                                    <th>Đào tạo Tại chức</th>
+                                    <th>Đào tạo Nghề</th>
+                                    <th>Đào tạo Trung cấp</th>
                                     <th>
                                         Hành động
                                     </th>
@@ -62,6 +67,11 @@
                                         <td>
                                             {{$item->khoa->name}}
                                         </td>
+                                        <td>{{$item->dao_tao_dh=='1'?'Có':'Không'}}</td>
+                                        <td>{{$item->dao_tao_cd=='1'?'Có':'Không'}}</td>
+                                        <td>{{$item->dao_tao_tc=='1'?'Có':'Không'}}</td>
+                                        <td>{{$item->dao_tao_nghe=='1'?'Có':'Không'}}</td>
+                                        <td>{{$item->dao_tao_trc=='1'?'Có':'Không'}}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn btn-primary" href="/nganh/{{$item->id}}/edit">

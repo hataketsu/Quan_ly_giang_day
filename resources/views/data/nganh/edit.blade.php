@@ -19,6 +19,11 @@
                         {!!BootForm::horizontal(["model"=>$item,"store"=>"nganh.store","update"=>"nganh.update","enctype"=>"multipart/form-data","id"=>"edit_form"])!!}
                         {!!BootForm::text("name","Tên")!!}
                         {!!BootForm::select("khoa_id","Khoa",\App\Khoa::get_selects())!!}
+                        {!!BootForm::checkbox("dao_tao_dh","Đào tạo Đại học")!!}
+                        {!!BootForm::checkbox("dao_tao_cd","Đào tạo Cao đẳng")!!}
+                        {!!BootForm::checkbox("dao_tao_tc","Đào tạo Tại chức")!!}
+                        {!!BootForm::checkbox("dao_tao_nghe","Đào tạo Nghề")!!}
+                        {!!BootForm::checkbox("dao_tao_trc","Đào tạo Trung cấp")!!}
                         {!!BootForm::close()!!}
                     </div>
                     <div class="box-footer text-center">

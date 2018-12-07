@@ -7,7 +7,7 @@
         <img src="/uploads/{{Auth::user()->avatar}}" class="img-circle" alt="User Image">
 
         <p>
-            {{Auth::user()->name}} - Admin
+            {{Auth::user()->name}} - {{Auth::user()->get_role()}}
             <small>Tham gia từ: {{(new Date(Auth::user()->created_at))->format("l j-m-Y")}}</small>
         </p>
     </li>
