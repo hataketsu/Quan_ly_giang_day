@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'giang_vien_id'
     ];
 
     /**
@@ -27,5 +27,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    protected $attributes = ['role' => 'teacher', 'avatar' => 'no_avatar.png'];
+    protected $attributes = ['role' => 'giang_vien', 'avatar' => 'no_avatar.png', 'name' => 'Not set'];
+
+    public function giang_vien()
+    {
+        return $this->belongsTo(Giang_vien::class);
+    }
+
+    public static function get_all_roles()
+    {
+        return ['admin' => 'Admin', 'giang_vien' => 'Giảng viên'];
+    }
+
+    public function get_role()
+    {
+        return User::get_all_roles()[$this->role];
+    }
 }

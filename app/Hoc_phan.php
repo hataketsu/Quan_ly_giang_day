@@ -30,4 +30,6 @@ class Hoc_phan extends Model
     {
         return ['Tiết 1', 'Tiết 2', 'Tiết 3', 'Tiết 4', 'Tiết 5', 'Tiết 6', 'Tiết 7', 'Tiết 8', 'Tiết 9', 'Tiết 10'];
     }
+
+
 }

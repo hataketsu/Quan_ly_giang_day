@@ -20,4 +20,15 @@ class Giang_vien extends Model
     {
         return $this->belongsTo(Khoa::class);
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
+
+    public function phan_cong_giang_day()
+    {
+        return $this->hasMany(Phan_cong_giang_day::class);
+    }
+
 }

@@ -26,6 +26,7 @@ Route::middleware(['auth'])->group(function () {
                  "Giang_vien_Controller" => 'giang_vien',
                  "Phan_cong_giang_day_Controller" => 'phan_cong_giang_day',
                  "Phong_hoc_Controller" => 'phong_hoc',
+                 "User_Controller" => 'tai_khoan',
              ] as $controller => $path) {
         Route::resource("/$path", "$controller");
         Route::get("/$path/{id}/delete", "$controller@delete");
@@ -37,6 +38,7 @@ Route::middleware(['auth'])->group(function () {
         return redirect('/');
     });
 
+
     Route::get('/profile/', "ProfileController@info");
     Route::post('/profile/', "ProfileController@info");
 
@@ -45,5 +47,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/profile/change_avatar', "ProfileController@change_avatar");
     Route::post('/profile/change_avatar', "ProfileController@change_avatar");
+    Route::get('/profile/phan_cong_giang_day', "Phan_cong_giang_day_Controller@from_user");
 
 });

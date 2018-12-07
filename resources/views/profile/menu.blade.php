@@ -12,6 +12,11 @@
             </li>
             <li><a href="/profile/change_pw"><i class="fa fa-user-secret"></i>Đổi mật khẩu</a>
             </li>
+            @if(Auth::user()->role=='giang_vien')
+                <li><a href="/giang_vien/{{Auth::user()->giang_vien_id}}/edit"><i class="fa fa-info"></i>Đổi thông tin
+                        giảng viên </a>
+                </li>
+            @endif
         </ul>
     </div>
 </div>
