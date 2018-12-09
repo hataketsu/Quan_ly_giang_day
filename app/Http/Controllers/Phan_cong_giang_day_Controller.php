@@ -86,6 +86,10 @@ class Phan_cong_giang_day_Controller extends Controller
         foreach ($items as $phan_cong) {
             if ($phan_cong->id == $phan_cong_giang_day->id)
                 continue;
+            if ($phan_cong->phong_hoc != $phan_cong_giang_day->phong_hoc)
+                continue;
+            if ($phan_cong->lop != $phan_cong_giang_day->lop)
+                continue;
 
             foreach ($request->post('tiet_hoc') as $tiet) {
                 if (in_array($tiet, json_decode($phan_cong->tiet_hoc))) {
