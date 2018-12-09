@@ -37,12 +37,13 @@
                             <div class="btn-group pull-right">
                                 <a href="/profile/phan_cong_giang_day" class="btn bg-green"><i class="fa fa-user"></i>
                                     Phân công giảng dạy của tôi</a>
-                            </div>
-                            <button id="reportrange" class="btn btn-primary">
-                                <i class="fa fa-calendar"></i>
+                                <button id="reportrange" class="btn btn-primary">
+                                    <i class="fa fa-calendar"></i>
 
-                                <span>{{$date_range}}</span>
-                            </button>
+                                    <span>{{$date_range}}</span>
+                                </button>
+                            </div>
+
                         @endif
                         <br>
                         <br>

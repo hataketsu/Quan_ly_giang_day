@@ -106,7 +106,7 @@ class Phan_cong_giang_day_Controller extends Controller
      */
     public function show(Phan_cong_giang_day $phan_cong_giang_day)
     {
-        return view("data.phan_cong_giang_day.list", ["items" => [$phan_cong_giang_day], "title" => "Xem phân công giảng dạy",'date_range' => '']);
+        return view("data.phan_cong_giang_day.list", ["items" => [$phan_cong_giang_day], "title" => "Xem phân công giảng dạy", 'date_range' => '']);
     }
 
     /**
@@ -161,10 +161,23 @@ class Phan_cong_giang_day_Controller extends Controller
         return redirect("/phan_cong_giang_day");
     }
 
-    public function from_user()
+    public function from_user(Request $request)
     {
         if (\Auth::user()->role == 'giang_vien') {
-            return view("data.phan_cong_giang_day.list", ["items" => \Auth::user()->giang_vien->phan_cong_giang_day, "title" => "Danh sách phân công giảng dạy"]);
+            if ($request->has('start') and $request->has('end')) {
+                $start_time = $request->get('start');
+                $end_time = $request->get('end');
+                $date_range = "$start_time - $end_time";
+                $items = \Auth::user()->giang_vien->phan_cong_giang_day()->whereDate('ngay_bat_dau', '>=', new Carbon($start_time))
+                    ->whereDate('ngay_bat_dau', '<=', new Carbon($end_time))->get();
+                $items2 = \Auth::user()->giang_vien->phan_cong_giang_day()->whereDate('ngay_ket_thuc', '>=', new Carbon($start_time))
+                    ->whereDate('ngay_ket_thuc', '<=', new Carbon($end_time))->get();
+                $items = $items->merge($items2)->unique();
+            } else {
+                $date_range = 'Lọc theo thời gian';
+                $items = \Auth::user()->giang_vien->phan_cong_giang_day;
+            }
+            return view("data.phan_cong_giang_day.list", ["items" => $items, "title" => "Danh sách phân công giảng dạy", 'date_range' => $date_range]);
 
         }
         return abort(403, 'Tài khoản này không phải giảng viên');

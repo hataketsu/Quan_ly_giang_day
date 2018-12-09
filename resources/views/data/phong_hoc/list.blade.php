@@ -60,7 +60,7 @@
                                             {{$item->id}}
                                         </td>
                                         <td>
-                                            {{$item->name}}
+                                            {{$item->ten}}
                                         </td>
                                         <td>
                                             {{$item->so_ban}}
