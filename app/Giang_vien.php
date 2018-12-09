@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Giang_vien extends Model
@@ -30,5 +31,27 @@ class Giang_vien extends Model
     {
         return $this->hasMany(Phan_cong_giang_day::class);
     }
+
+    public function so_tiet_day()
+    {
+        $tiet_hoc = 0;
+        $phan_cong = $this->phan_cong_giang_day()->whereDate('ngay_bat_dau', '<=', Carbon::now())->whereDate('ngay_ket_thuc', '>=', Carbon::now())->get();
+        foreach ($phan_cong as $p) {
+            $tiet_hoc += $p->get_so_tiet_hoc();
+        }
+        return $tiet_hoc;
+    }
+
+    public function so_mon_day()
+    {
+        $mon_hoc = collect();
+        $phan_cong = $this->phan_cong_giang_day()->whereDate('ngay_bat_dau', '<=', Carbon::now())->whereDate('ngay_ket_thuc', '>=', Carbon::now())->get();
+        foreach ($phan_cong as $p) {
+            $mon_hoc = $mon_hoc->concat([$p->hoc_phan->mon_hoc]);
+        }
+        $mon_hoc = $mon_hoc->unique();
+        return $mon_hoc->count();
+    }
+
 
 }

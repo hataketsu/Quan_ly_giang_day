@@ -21,8 +21,8 @@
                         {!!BootForm::select("hoc_phan_id","Học phần",\App\Hoc_phan::get_selects())!!}
                         {!!BootForm::select("tiet_hoc[]","Tiết học",\App\Hoc_phan::getClasses(),json_decode($item->tiet_hoc),['multiple' => 'multiple','class'=>'select2'])!!}
                         {!!BootForm::select("ngay_trong_tuan[]","Ngày trong tuần",\App\Phan_cong_giang_day::getDayOfWeek(),json_decode($item->tiet_hoc),['multiple' => 'multiple','class'=>'select2'])!!}
-                        {!!BootForm::date("ngay_bat_dau","Ngày bắt đầu", new \DateTime())!!}
-                        {!!BootForm::date("ngay_ket_thuc","Ngày kết thúc", new \DateTime())!!}
+                        {!!BootForm::date("ngay_bat_dau","Ngày bắt đầu")!!}
+                        {!!BootForm::date("ngay_ket_thuc","Ngày kết thúc")!!}
                         {!!BootForm::select("lop_id","Lớp",\App\Lop::get_selects())!!}
                         {!!BootForm::select("phong_hoc_id","Phòng học",\App\Phong_hoc::get_selects())!!}
                         {!!BootForm::close()!!}

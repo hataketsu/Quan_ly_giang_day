@@ -53,5 +53,10 @@ class Phan_cong_giang_day extends Model
         return ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật'];
     }
 
-
+    public function get_so_tiet_hoc()
+    {
+        $tiet_hocs = json_decode($this->tiet_hoc);
+        $ngay_hoc = json_decode($this->ngay_trong_tuan);
+        return count($ngay_hoc) * count($tiet_hocs);
+    }
 }

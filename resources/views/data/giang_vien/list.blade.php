@@ -44,6 +44,8 @@
                                     <th>Giới tính</th>
                                     <th>Số điện thoại</th>
                                     <th>Khoa</th>
+                                    <th>Số tiết dạy</th>
+                                    <th>Số môn dạy</th>
                                     <th>
                                         Hành động
                                     </th>
@@ -76,6 +78,8 @@
                                         <td>
                                             {{$item->khoa->name}}
                                         </td>
+                                        <td>{{$item->so_tiet_day()}}</td>
+                                        <td>{{$item->so_mon_day()}}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <a class="btn btn-primary" href="/giang_vien/{{$item->id}}/edit">
