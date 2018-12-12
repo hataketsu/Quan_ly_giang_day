@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Phan_cong_giang_day extends Model
@@ -57,6 +58,13 @@ class Phan_cong_giang_day extends Model
     {
         $tiet_hocs = json_decode($this->tiet_hoc);
         $ngay_hoc = json_decode($this->ngay_trong_tuan);
-        return count($ngay_hoc) * count($tiet_hocs);
+        $start = new Carbon($this->ngay_bat_dau);
+        $end = new Carbon($this->ngay_ket_thuc);
+        $count = 0;
+        for ($i = $start; $end->greaterThanOrEqualTo($i); $i->addDay(1)) {
+            if (in_array($i->dayOfWeek-1, $ngay_hoc))
+                $count++;
+        }
+        return $count * count($tiet_hocs);
     }
 }
