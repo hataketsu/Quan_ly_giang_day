@@ -36,6 +36,7 @@
                                     <th>
                                         Tên
                                     </th>
+                                    <th>Mã số</th>
                                     <th>
                                         Chuyên môn
                                     </th>
@@ -59,6 +60,9 @@
                                         </td>
                                         <td>
                                             {{$item->ten}}
+                                        </td>
+                                        <td>
+                                            {{$item->ma_so}}
                                         </td>
                                         <td>
                                             {{$item->chuyen_mon}}

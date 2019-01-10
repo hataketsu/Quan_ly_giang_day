@@ -46,6 +46,7 @@ class Giang_vien_Controller extends Controller
         $request->validate(
             [
                 "ten" => "required|string",
+                "ma_so" => "required|string",
                 "chuyen_mon" => "required|string",
                 "chuc_vu" => "required|string",
                 "ngay_sinh" => "required|string",

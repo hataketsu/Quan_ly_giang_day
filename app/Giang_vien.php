@@ -8,13 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Giang_vien extends Model
 {
     protected $table = 'giang_vien';
-    protected $fillable = ['ten', 'chuyen_mon', 'chuc_vu', 'ngay_sinh', 'gioi_tinh', 'dien_thoai', 'khoa_id'];
+    protected $fillable = ['ten', 'chuyen_mon', 'chuc_vu', 'ngay_sinh', 'gioi_tinh', 'dien_thoai', 'khoa_id', 'ma_so'];
 
     public static function get_selects()
     {
         $ids = Giang_vien::all()->pluck('id');
         $names = Giang_vien::all()->pluck('ten');
-        return $ids->combine($names);
+        $ma_so = Giang_vien::all()->pluck('ma_so');
+        $ten_ma_so = array();
+        for ($i = 0; $i < Giang_vien::query()->count(); $i++) {
+            array_push($ten_ma_so, $names[$i] .' - '. $ma_so[$i]);
+        }
+        return $ids->combine($ten_ma_so);
     }
 
     public function khoa()

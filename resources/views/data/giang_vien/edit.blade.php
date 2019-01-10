@@ -18,6 +18,7 @@
                     <div class="box-body">
                         {!!BootForm::horizontal(["model"=>$item,"store"=>"giang_vien.store","update"=>"giang_vien.update","enctype"=>"multipart/form-data","id"=>"edit_form"])!!}
                         {!!BootForm::text("ten","Tên")!!}
+                        {!!BootForm::text("ma_so","Mã số")!!}
                         {!!BootForm::text("chuyen_mon","Chuyên môn")!!}
                         {!!BootForm::text("chuc_vu","Chức vụ")!!}
                         {!!BootForm::date("ngay_sinh","Ngày sinh")!!}

@@ -82,7 +82,7 @@
                                             <input type="checkbox" name="checked_{{$item->id}}">
                                         </td>
                                         <td>
-                                            {{$item->giang_vien->ten}}
+                                            {{$item->giang_vien->ten.' - '.$item->giang_vien->ma_so}}
                                         </td>
                                         <td>
                                             {{$item->hoc_phan->ten}}
